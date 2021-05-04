@@ -23,8 +23,8 @@ public class LRbox : MonoBehaviour
     void FixedUpdate()
     {
         if (Spin) spin();
-        //StartCoroutine(LRDmove());
-        LRMove(speed);
+        StartCoroutine(LRDmove());
+        //LRMove(speed);
 
 
     }
