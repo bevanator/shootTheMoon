@@ -8,23 +8,27 @@ public class LRbox : MonoBehaviour
     public float speed;
     public float spinSpeed = 50f;
     public float delay = 1f;
-    public float Lmax = 3f;
-    public float Rmax = 3f;
+    float Lmax; 
+    public float Loff = 3f;
+    float Rmax;
+    public float Roff = 3f;
     private Vector3 dir = Vector3.left;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Lmax = transform.localPosition.x - Loff;
+        Rmax = transform.localPosition.x + Roff;
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (Spin) spin();
-        StartCoroutine(LRDmove());
-        //LRMove(speed);
+        //StartCoroutine(LRDmove
+        LRMove(speed);
 
 
     }
@@ -33,11 +37,11 @@ public class LRbox : MonoBehaviour
     {
         transform.Translate(dir * speed * Time.deltaTime);
 
-        if (transform.position.x <= -Lmax)
+        if (transform.localPosition.x <= Lmax)
         {
             dir = Vector3.right;
         }
-        else if (transform.position.x >= Rmax)
+        else if (transform.localPosition.x >= Rmax)
         {
             dir = Vector3.left;
         }
