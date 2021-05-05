@@ -105,6 +105,13 @@ public class Ball : MonoBehaviour
         }
     }
 
+
+    public void boost(float power, Vector3 dir)
+    {
+        print("boosted");
+        rb.velocity = Vector3.zero;
+        rb.AddForce(power * dir, ForceMode.Impulse);
+    }
     private void OnTriggerEnter(Collider boostCol)
     {
         if (boostCol.gameObject.tag == "levelReach")
@@ -115,48 +122,6 @@ public class Ball : MonoBehaviour
             PlayerPrefs.SetInt("LevelBeaten", levelBeaten);
 
         }
-        if (boostCol.gameObject.tag == "UpBooster")
-        {
-            print("boosted");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(0, 50f, 0, ForceMode.Impulse);
-        }
-
-        if (boostCol.gameObject.tag == "DownBooster")
-        {
-            print("boosted");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(0, -50f, 0, ForceMode.Impulse);
-        }
-        if (boostCol.gameObject.tag == "LeftBooster")
-        {
-            print("boosted");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(-50f, 0, 0, ForceMode.Impulse);
-        }
-
-        if (boostCol.gameObject.tag == "RightBooster")
-        {
-            print("boosted");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(50f, 0, 0, ForceMode.Impulse);
-        }
-
-        if (boostCol.gameObject.tag == "UpperRightBooster")
-        {
-            print("boosted");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(25f, 25f, 0, ForceMode.Impulse);
-        }
-
-        if (boostCol.gameObject.tag == "UpperLeftBooster")
-        {
-            print("boosted");
-            rb.velocity = Vector3.zero;
-            rb.AddForce(-25f, 25f, 0, ForceMode.Impulse);
-        }
-
-
 
     }
 

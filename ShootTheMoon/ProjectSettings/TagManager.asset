@@ -7,10 +7,10 @@ TagManager:
   - RightBooster
   - UpBooster
   - UpperRightBooster
-  - LeftBooster
   - UpperLeftBooster
   - Kill
   - levelReach
+  - LeftBooster
   layers:
   - Default
   - TransparentFX
